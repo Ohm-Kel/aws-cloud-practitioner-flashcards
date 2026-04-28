@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AWS Cloud Practitioner Flashcards</title>
+  <meta name="description" content="AWS Certified Cloud Practitioner CLF-C02 flashcard study system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Study controls">
+      <div class="brand-block">
+        <div class="brand-mark">AWS</div>
+        <div>
+          <p class="eyebrow">CLF-C02</p>
+          <h1>Cloud Practitioner Flashcards</h1>
+        </div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-row">
+          <span>Mastery</span>
+          <strong id="masteryText">0%</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="masteryBar" class="progress-fill"></div>
+        </div>
+        <p id="progressDetail">No cards marked yet.</p>
+      </div>
+
+      <label class="field-label" for="domainFilter">Domain</label>
+      <select id="domainFilter">
+        <option value="all">All domains</option>
+      </select>
+
+      <label class="field-label" for="modeFilter">Mode</label>
+      <select id="modeFilter">
+        <option value="all">All cards</option>
+        <option value="unseen">Unseen</option>
+        <option value="review">Needs review</option>
+        <option value="known">Known</option>
+        <option value="rapid">Rapid revision</option>
+      </select>
+
+      <label class="field-label" for="searchBox">Search</label>
+      <input id="searchBox" type="search" placeholder="S3, IAM, pricing..." autocomplete="off">
+
+      <div class="button-grid">
+        <button id="shuffleBtn" type="button">Shuffle</button>
+        <button id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <nav class="mini-nav" aria-label="Document sections">
+        <a href="#cards">Cards</a>
+        <a href="#confused">Confused pairs</a>
+        <a href="#exam">Exam facts</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Beginner-first active recall</p>
+          <h2 id="deckTitle">All flashcards</h2>
+        </div>
+        <div class="counter" id="cardCounter">0 / 0</div>
+      </section>
+
+      <section id="cards" class="study-stage" aria-live="polite">
+        <article class="flashcard" id="flashcard" tabindex="0" aria-label="Flashcard. Press Enter to flip.">
+          <div class="card-face card-front">
+            <div class="card-meta">
+              <span id="cardId">D1.1.1</span>
+              <span id="cardDomain">Domain</span>
+            </div>
+            <h3 id="cardTopic">Topic</h3>
+            <p class="question-label">Question</p>
+            <p id="cardQuestion" class="question-text"></p>
+            <p class="flip-hint">Click card or press Enter to reveal answer</p>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-meta">
+              <span id="backCardId">D1.1.1</span>
+              <span>Answer</span>
+            </div>
+            <h3 id="backTopic">Topic</h3>
+            <div id="cardAnswer" class="answer-text"></div>
+            <div id="cardExtras" class="extras"></div>
+            <p class="flip-hint">Click card or press Enter to return to question</p>
+          </div>
+        </article>
+
+        <div class="study-actions" aria-label="Card actions">
+          <button id="prevBtn" class="icon-button" type="button" aria-label="Previous card">‹</button>
+          <button id="reviewBtn" class="secondary" type="button">Needs review</button>
+          <button id="knownBtn" class="primary" type="button">Known</button>
+          <button id="nextBtn" class="icon-button" type="button" aria-label="Next card">›</button>
+        </div>
+      </section>
+
+      <section id="confused" class="content-band">
+        <div class="section-heading">
+          <p class="eyebrow">High-yield comparisons</p>
+          <h2>Commonly Confused Pairs</h2>
+        </div>
+        <div id="pairGrid" class="pair-grid"></div>
+      </section>
+
+      <section id="exam" class="content-band">
+        <div class="section-heading">
+          <p class="eyebrow">Verified official scope</p>
+          <h2>Exam Facts</h2>
+        </div>
+        <div class="facts-grid">
+          <div><strong>Exam</strong><span>AWS Certified Cloud Practitioner CLF-C02</span></div>
+          <div><strong>Questions</strong><span>65 total, 50 scored, 15 unscored</span></div>
+          <div><strong>Time</strong><span>90 minutes</span></div>
+          <div><strong>Passing score</strong><span>700 on a 100-1,000 scale</span></div>
+          <div><strong>Cost</strong><span>100 USD, verify current price before booking</span></div>
+          <div><strong>Delivery</strong><span>Pearson VUE test center or online proctored</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
