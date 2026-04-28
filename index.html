@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AWS Cloud Practitioner Flashcards &mdash; CLF-C02</title>
+  <meta name="description" content="AWS Certified Cloud Practitioner CLF-C02 flashcard study system with 229 cards across all four exam domains.">
+  <meta name="theme-color" content="#0972d3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open study controls" aria-expanded="false">&#9776;</button>
+
+  <div class="app-shell">
+
+    <aside class="sidebar" id="sidebar" aria-label="Study controls">
+      <div class="sidebar-inner">
+
+        <div class="brand-block">
+          <div class="brand-mark">AWS</div>
+          <div class="brand-text">
+            <p class="eyebrow">CLF-C02</p>
+            <h1>Cloud Practitioner</h1>
+          </div>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9790;</button>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-row">
+            <span>Mastery</span>
+            <strong id="masteryText">0%</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="masteryBar" class="progress-fill"></div>
+          </div>
+          <p id="progressDetail">No cards marked yet.</p>
+        </div>
+
+        <label class="field-label" for="domainFilter">Domain</label>
+        <select id="domainFilter">
+          <option value="all">All domains</option>
+        </select>
+
+        <label class="field-label" for="modeFilter">Study mode</label>
+        <select id="modeFilter">
+          <option value="all">All cards</option>
+          <option value="unseen">Unseen</option>
+          <option value="review">Needs review</option>
+          <option value="known">Known</option>
+          <option value="rapid">Rapid revision</option>
+        </select>
+
+        <label class="field-label" for="searchBox">Search</label>
+        <input id="searchBox" type="search" placeholder="S3, IAM, pricing..." autocomplete="off">
+
+        <div class="button-grid">
+          <button id="shuffleBtn" type="button">Shuffle</button>
+          <button id="resetBtn" type="button" class="danger-btn">Reset all</button>
+        </div>
+
+        <div class="shortcuts-panel">
+          <p class="field-label">Keyboard shortcuts</p>
+          <div class="shortcut-row">
+            <span class="shortcut-keys"><kbd>Space</kbd> <kbd>Enter</kbd></span>
+            <span class="shortcut-desc">Flip card</span>
+          </div>
+          <div class="shortcut-row">
+            <span class="shortcut-keys"><kbd>&rarr;</kbd> <kbd>&larr;</kbd></span>
+            <span class="shortcut-desc">Navigate</span>
+          </div>
+          <div class="shortcut-row">
+            <span class="shortcut-keys"><kbd>K</kbd></span>
+            <span class="shortcut-desc">Mark known</span>
+          </div>
+          <div class="shortcut-row">
+            <span class="shortcut-keys"><kbd>R</kbd></span>
+            <span class="shortcut-desc">Mark review</span>
+          </div>
+        </div>
+
+        <nav class="mini-nav" aria-label="Document sections">
+          <p class="field-label">Jump to</p>
+          <a href="#cards">Flashcards</a>
+          <a href="#confused">Confused pairs</a>
+          <a href="#exam">Exam facts</a>
+        </nav>
+
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main>
+
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Beginner-first active recall</p>
+          <h2 id="deckTitle">All flashcards</h2>
+        </div>
+        <div class="counter" id="cardCounter">0 / 0</div>
+      </section>
+
+      <section id="cards" class="study-stage" aria-live="polite">
+        <article class="flashcard" id="flashcard" tabindex="0" aria-label="Flashcard. Press Enter to flip.">
+
+          <div class="card-face card-front">
+            <div class="card-meta">
+              <span id="cardId">D1.1.1</span>
+              <span id="cardDomain">Domain</span>
+              <span id="cardStatusBadge" class="status-badge hidden"></span>
+            </div>
+            <h3 id="cardTopic">Topic</h3>
+            <p class="question-label">Question</p>
+            <p id="cardQuestion" class="question-text"></p>
+            <p class="flip-hint">Click or press <kbd>Enter</kbd> to reveal answer</p>
+          </div>
+
+          <div class="card-face card-back">
+            <div class="card-meta">
+              <span id="backCardId">D1.1.1</span>
+              <span class="meta-answer-tag">Answer</span>
+            </div>
+            <h3 id="backTopic">Topic</h3>
+            <div id="cardAnswer" class="answer-text"></div>
+            <div id="cardExtras" class="extras"></div>
+            <p class="flip-hint">Click or press <kbd>Enter</kbd> to return to question</p>
+          </div>
+
+        </article>
+
+        <div class="study-actions" aria-label="Card actions">
+          <button id="prevBtn" class="icon-button" type="button" aria-label="Previous card">&#8592;</button>
+          <button id="reviewBtn" class="secondary" type="button">Needs review</button>
+          <button id="knownBtn" class="primary" type="button">Known</button>
+          <button id="nextBtn" class="icon-button" type="button" aria-label="Next card">&#8594;</button>
+        </div>
+      </section>
+
+      <section id="confused" class="content-band">
+        <div class="section-heading">
+          <p class="eyebrow">High-yield comparisons</p>
+          <h2>Commonly Confused Pairs</h2>
+        </div>
+        <div id="pairGrid" class="pair-grid"></div>
+      </section>
+
+      <section id="exam" class="content-band">
+        <div class="section-heading">
+          <p class="eyebrow">Verified official scope</p>
+          <h2>Exam Facts</h2>
+        </div>
+        <div class="facts-grid">
+          <div class="fact-card" style="animation-delay:0.05s">
+            <strong>Exam</strong>
+            <span>AWS Certified Cloud Practitioner CLF-C02</span>
+          </div>
+          <div class="fact-card" style="animation-delay:0.10s">
+            <strong>Questions</strong>
+            <span>65 total &mdash; 50 scored, 15 unscored</span>
+          </div>
+          <div class="fact-card" style="animation-delay:0.15s">
+            <strong>Time limit</strong>
+            <span>90 minutes</span>
+          </div>
+          <div class="fact-card" style="animation-delay:0.20s">
+            <strong>Passing score</strong>
+            <span>700 on a 100&ndash;1,000 scale</span>
+          </div>
+          <div class="fact-card" style="animation-delay:0.25s">
+            <strong>Cost</strong>
+            <span>$100 USD &mdash; verify current price before booking</span>
+          </div>
+          <div class="fact-card" style="animation-delay:0.30s">
+            <strong>Delivery</strong>
+            <span>Pearson VUE test center or online proctored</span>
+          </div>
+          <div class="fact-card" style="animation-delay:0.35s">
+            <strong>Domains</strong>
+            <span>D1 Cloud Concepts &middot; D2 Security &middot; D3 Technology &middot; D4 Billing</span>
+          </div>
+          <div class="fact-card" style="animation-delay:0.40s">
+            <strong>Domain weights</strong>
+            <span>D1 24% &middot; D2 30% &middot; D3 34% &middot; D4 12%</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="toastContainer" class="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
